@@ -4,300 +4,658 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>જય સુરાપુરા દાદા મંદિર નિર્માણ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Gujarati:wght@300;400;600;700&family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 
 <style>
-:root{
-  --primary:#b45309;
-  --card-bg:rgba(255,255,255,0.92);
+/* ===== CSS VARIABLES ===== */
+:root {
+  --saffron:       #c8610a;
+  --saffron-light: #e8820c;
+  --saffron-glow:  #f5a623;
+  --gold:          #d4a017;
+  --gold-light:    #f0c040;
+  --cream:         #fdf6e3;
+  --cream-dark:    #f5ead0;
+  --maroon:        #6b1a1a;
+  --maroon-light:  #8b2a2a;
+  --ink:           #2c1a0e;
+  --ink-soft:      #4a2e1a;
+  --white-glass:   rgba(255,252,245,0.93);
+  --card-shadow:   0 20px 60px rgba(100,40,0,0.22), 0 4px 12px rgba(100,40,0,0.1);
 }
 
-/* ===== BACKGROUND ===== */
-body{
-  margin:0;
-  padding:20px;
-  min-height:100vh;
+/* ===== RESET & BASE ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  min-height: 100vh;
   background:
-    linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),
+    linear-gradient(160deg, rgba(30,10,0,0.62) 0%, rgba(80,30,0,0.45) 100%),
     url("https://rampar-gam.github.io/surapura/images/Rampar.jpg");
-  background-size:cover;
-  background-position:center;
-  background-attachment:fixed;
-  font-family:"Noto Sans Gujarati",sans-serif;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  font-family: "Noto Sans Gujarati", sans-serif;
+  color: var(--ink);
+  padding: 0 0 60px;
 }
 
-/* ===== MENU ===== */
-.menubar{
-  display:flex;
-  justify-content:center;
-  gap:25px;
-  background:rgba(180,83,9,.95);
-  padding:14px;
-  border-radius:16px;
-  margin-bottom:25px;
-}
-.menubar a{
-  color:white;
-  font-weight:600;
-  cursor:pointer;
-}
-.menubar a.active{ text-decoration:underline; }
-
-/* ===== CARD ===== */
-.container{
-  max-width:1100px;
-  margin:auto;
-  background:var(--card-bg);
-  backdrop-filter:blur(4px);
-  border-radius:22px;
-  padding:40px;
-  box-shadow:0 15px 40px rgba(0,0,0,.25);
+/* ===== OM HEADER STRIP ===== */
+.divine-banner {
+  background: linear-gradient(90deg, var(--maroon) 0%, #4a0e0e 40%, var(--maroon) 100%);
+  text-align: center;
+  padding: 10px 20px;
+  letter-spacing: 3px;
+  font-size: 13px;
+  color: var(--gold-light);
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  border-bottom: 2px solid var(--gold);
 }
 
-header{text-align:center;margin-bottom:30px;}
-header h1{color:var(--primary);font-size:32px;}
+/* ===== NAV ===== */
+.menubar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, rgba(100,20,0,0.97) 0%, rgba(60,10,0,0.97) 100%);
+  padding: 14px 24px;
+  box-shadow: 0 4px 30px rgba(0,0,0,0.5);
+  border-bottom: 2px solid var(--gold);
+  flex-wrap: wrap;
+}
 
-.tab{display:none;}
-.tab.active{display:block;}
+.menu-toggle {
+  display: none;
+  color: var(--gold-light);
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 15px;
+  letter-spacing: 1px;
+}
 
-h2{
-  color:var(--primary);
-  margin-bottom:15px;
+.menu-links {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.menubar a {
+  color: rgba(255,220,150,0.85);
+  font-weight: 600;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.menubar a:hover {
+  color: var(--cream);
+  background: rgba(255,200,80,0.15);
+  border-color: rgba(212,160,23,0.4);
+}
+
+.menubar a.active {
+  color: var(--ink);
+  background: linear-gradient(135deg, var(--gold-light), var(--saffron-glow));
+  border-color: var(--gold);
+  box-shadow: 0 2px 12px rgba(212,160,23,0.4);
+}
+
+/* ===== MAIN CONTAINER ===== */
+.page-wrap {
+  max-width: 1140px;
+  margin: 40px auto 0;
+  padding: 0 20px;
+}
+
+.container {
+  background: var(--white-glass);
+  backdrop-filter: blur(12px);
+  border-radius: 28px;
+  padding: 50px 48px;
+  box-shadow: var(--card-shadow);
+  border: 1px solid rgba(212,160,23,0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+/* decorative corner mandala lines */
+.container::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, var(--maroon), var(--gold), var(--saffron-glow), var(--gold), var(--maroon));
+  border-radius: 28px 28px 0 0;
+}
+
+/* ===== PAGE HEADER ===== */
+header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid rgba(200,97,10,0.2);
+  position: relative;
+}
+
+.header-om {
+  font-size: 38px;
+  line-height: 1;
+  margin-bottom: 8px;
+  filter: drop-shadow(0 2px 6px rgba(200,97,10,0.3));
+}
+
+header h2 {
+  font-family: "Cinzel Decorative", serif;
+  font-size: clamp(18px, 3vw, 26px);
+  color: var(--saffron);
+  letter-spacing: 1px;
+  line-height: 1.4;
+  text-shadow: 0 1px 3px rgba(200,97,10,0.2);
+}
+
+.header-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 16px 0 0;
+}
+
+.header-divider::before,
+.header-divider::after {
+  content: "";
+  flex: 1;
+  max-width: 120px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold));
+}
+
+.header-divider::after {
+  background: linear-gradient(90deg, var(--gold), transparent);
+}
+
+.header-divider span {
+  color: var(--gold);
+  font-size: 18px;
+}
+
+/* ===== TAB SYSTEM ===== */
+.tab { display: none; }
+.tab.active { display: block; animation: fadeUp 0.4s ease; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== SECTION HEADINGS ===== */
+h2 {
+  color: var(--saffron);
+  font-size: 20px;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+
+.section-title::after {
+  content: "";
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(200,97,10,0.4), transparent);
+  border-radius: 2px;
+}
+
+.section-title h2 {
+  margin: 0;
+  white-space: nowrap;
+}
+
+/* ===== HOME TAB ===== */
+.home-announcement {
+  background: linear-gradient(135deg, #fffbf0, #fff5db);
+  border: 1px solid rgba(212,160,23,0.35);
+  border-left: 4px solid var(--saffron-glow);
+  border-radius: 14px;
+  padding: 22px 28px;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 20px rgba(200,97,10,0.1);
+}
+
+.home-announcement h3 {
+  color: var(--ink-soft);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+.home-buttons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 28px;
+}
+
+.btn-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  background: linear-gradient(135deg, #1a7a34, #22a348);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 600;
+  box-shadow: 0 4px 18px rgba(26,122,52,0.35);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.btn-download:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(26,122,52,0.45);
+}
+
+.btn-location {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  background: linear-gradient(135deg, var(--saffron), var(--saffron-light));
+  color: #fff;
+  text-decoration: none;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 600;
+  box-shadow: 0 4px 18px rgba(200,97,10,0.35);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.btn-location:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(200,97,10,0.45);
 }
 
 /* ===== TIMELINE ===== */
-.timeline{border-left:4px solid var(--primary);padding-left:25px;}
-.event{
-  background:white;
-  padding:18px;
-  border-radius:14px;
-  margin-bottom:22px;
-  box-shadow:0 4px 12px rgba(0,0,0,.1);
-  position:relative;
-}
-.event::before{
-  content:"";
-  width:14px;height:14px;
-  background:var(--primary);
-  border-radius:50%;
-  position:absolute;
-  left:-33px;top:20px;
+.timeline {
+  border-left: 3px solid var(--gold);
+  padding-left: 32px;
+  margin-left: 10px;
+  position: relative;
 }
 
-.gallery-controls{
-  display:flex;
-  gap:10px;
-  margin-top:10px;
+.event {
+  background: white;
+  padding: 24px 28px;
+  border-radius: 18px;
+  margin-bottom: 28px;
+  box-shadow: 0 4px 24px rgba(100,40,0,0.1);
+  position: relative;
+  border: 1px solid rgba(212,160,23,0.18);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.gallery-controls button{
-  padding:4px 8px;
-  border-radius:6px;
-  border:1px solid #ccc;
-  cursor:pointer;
-  background:#fafafa;
+
+.event:hover {
+  transform: translateX(4px);
+  box-shadow: 0 8px 32px rgba(100,40,0,0.16);
+}
+
+.event::before {
+  content: "✦";
+  color: var(--gold);
+  font-size: 18px;
+  position: absolute;
+  left: -43px;
+  top: 20px;
+  background: var(--cream);
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  line-height: 1;
+  text-align: center;
+}
+
+.event > div:first-child strong {
+  color: var(--saffron);
+  font-size: 16px;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.event p {
+  color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 14px;
+}
+
+/* ===== GALLERY CONTROLS ===== */
+.gallery-controls {
+  display: flex;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.play-btn {
+  background: linear-gradient(135deg, var(--saffron), var(--saffron-light));
+  color: white;
+  border: none;
+  padding: 8px 22px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 50px;
+  font-weight: 600;
+  box-shadow: 0 3px 12px rgba(200,97,10,0.3);
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.play-btn:hover {
+  background: linear-gradient(135deg, var(--maroon), var(--maroon-light));
+  transform: translateY(-1px);
+  box-shadow: 0 5px 18px rgba(100,20,0,0.35);
 }
 
 /* ===== GALLERY ===== */
-.event-gallery{
-  display:grid;
-  gap:8px;
-  margin-top:10px;
+.event-gallery { display: grid; gap: 8px; margin-top: 12px; }
+.event-gallery.grid { grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); }
+.event-gallery.list { display: flex; flex-direction: column; }
+
+.event-gallery img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  border: 2px solid transparent;
 }
-.event-gallery.grid{
-  grid-template-columns:repeat(auto-fill,minmax(100px,1fr));
-}
-.event-gallery.list{
-  display:flex;
-  flex-direction:column;
-}
-.event-gallery img{
-  width:100%;
-  aspect-ratio:1/1;
-  object-fit:cover;
-  border-radius:12px;
-  cursor:pointer;
+
+.event-gallery img:hover {
+  transform: scale(1.06);
+  box-shadow: 0 6px 20px rgba(100,40,0,0.25);
+  border-color: var(--gold);
 }
 
 /* ===== TABLE ===== */
-table{width:100%;border-collapse:collapse;margin-top:15px;}
-th,td{border:1px solid #eee;padding:10px;text-align:center;}
-th{background:var(--primary);color:white;}
+.table-wrap { overflow-x: auto; border-radius: 16px; box-shadow: 0 4px 20px rgba(100,40,0,0.1); }
 
-/* ===== VIDEO GRID ===== */
-.video-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
-  margin-top:20px;
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+  font-size: 14px;
 }
 
-.video-grid video{
-  width:100%;
-  aspect-ratio:9/16;   /* Portrait ratio */
-  object-fit:contain;
-  border-radius:14px;
-  background:#000;
-  box-shadow:0 6px 15px rgba(0,0,0,.2);
+th {
+  background: linear-gradient(135deg, var(--saffron), var(--saffron-light));
+  color: white;
+  padding: 14px 16px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+
+th:first-child { border-radius: 0; }
+
+td {
+  border: 1px solid rgba(200,97,10,0.12);
+  padding: 12px 16px;
+  text-align: center;
+  line-height: 1.6;
+  background: white;
+}
+
+tr:nth-child(even) td { background: #fffaf3; }
+tr:hover td { background: #fff5e0; transition: background 0.2s; }
+
+/* ===== VIDEO GRID ===== */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.video-grid video {
+  width: 100%;
+  aspect-ratio: 9/16;
+  object-fit: contain;
+  border-radius: 18px;
+  background: #111;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+  border: 2px solid rgba(212,160,23,0.2);
+  transition: box-shadow 0.3s;
+}
+
+.video-grid video:hover {
+  box-shadow: 0 12px 40px rgba(200,97,10,0.3);
+  border-color: rgba(212,160,23,0.5);
 }
 
 /* ===== MODAL ===== */
-.modal{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.9);
-  justify-content:center;
-  align-items:center;
-  z-index:999;
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(10,4,0,0.95);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  backdrop-filter: blur(4px);
 }
-.modal.show{display:flex;}
-.modal img{max-width:95%;max-height:95%;}
+
+.modal.show { display: flex; }
+
+.modal img {
+  max-width: 95%;
+  max-height: 95%;
+  border-radius: 14px;
+  box-shadow: 0 20px 80px rgba(0,0,0,0.8);
+}
 
 /* ===== MAP ===== */
 .map-container {
   position: relative;
   width: 100%;
-  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  padding-bottom: 56.25%;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+  border: 2px solid rgba(212,160,23,0.25);
 }
 
 .map-container iframe {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
   border: 0;
 }
 
-/* ===== Button VIEW ===== */
-.play-btn {
-  background-color: red;
-  color: red;
-  border: black;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 5px;
+/* ===== CARD GRID (Details Tab) ===== */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 22px;
+  margin-top: 24px;
 }
 
-.play-btn:hover {
-  background-color: black;
+.card {
+  background: white;
+  padding: 26px 24px;
+  border-radius: 20px;
+  box-shadow: 0 6px 24px rgba(100,40,0,0.12);
+  border: 1px solid rgba(212,160,23,0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-/* ===== CARD VIEW ===== */
-.card-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:20px;
-  margin-top:20px;
-}
-.card{
-  background:white;
-  padding:20px;
-  border-radius:18px;
-  box-shadow:0 6px 18px rgba(0,0,0,.15);
-  transition:.3s;
-}
-.card:hover{ transform:translateY(-5px); }
-.card h3{ color:var(--primary); margin-bottom:10px; }
-.card a{ color:#b45309; text-decoration:none; font-weight:500; }
-
-/* ===== MOBILE VIEW ===== */
-.menu-toggle{
-  display:none;
-  color:white;
-  font-weight:bold;
-  cursor:pointer;
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--saffron), var(--gold-light), var(--saffron-glow));
 }
 
-.menu-links{
-  display:flex;
-  gap:25px;
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(100,40,0,0.2);
 }
 
-@media (max-width:768px){
+.card h3 {
+  color: var(--saffron);
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 14px;
+  line-height: 1.4;
+}
 
-  .menubar{
-    flex-direction:column;
-    align-items:flex-start;
+.card p {
+  color: var(--ink-soft);
+  font-size: 14px;
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+.card a {
+  color: var(--saffron);
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 1px dotted var(--saffron-glow);
+  transition: color 0.2s;
+}
+
+.card a:hover { color: var(--maroon); }
+
+/* ===== CENTER UTILITY ===== */
+.center-heading {
+  text-align: center;
+  margin: 32px 0 16px;
+}
+
+/* ===== MOBILE ===== */
+.menu-toggle { display: none; }
+
+@media (max-width: 768px) {
+  .container { padding: 30px 20px; }
+
+  .menubar {
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
   }
 
-  .menu-toggle{
-    display:block;
+  .menu-toggle {
+    display: block;
+    width: 100%;
+    text-align: left;
   }
 
-	.menu-links{
-	  display:none;
-	  grid-template-columns:repeat(2,1fr);
-	  gap:10px;
-	  width:100%;
-	  margin-top:10px;
-	}
+  .menu-links {
+    display: none;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 8px;
+    margin-top: 10px;
+  }
 
-	.menu-links a{
-	  background:rgba(255,255,255,0.15);
-	  padding:10px;
-	  border-radius:8px;
-	  text-align:center;
-	}
+  .menu-links.show { display: flex; }
 
-	.menu-links.show{
-	  display:grid;
-	}
+  .menubar a {
+    width: calc(50% - 4px);
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+  .home-buttons { flex-direction: column; align-items: center; }
+
+  .timeline { padding-left: 20px; }
 }
 </style>
 </head>
-
 <body>
 
+<!-- Top divine strip -->
+<div class="divine-banner">🕉 જય સુરાપુરા દાદા 🕉 &nbsp;|&nbsp; જય ભરાડી આઈ 🕉 &nbsp;|&nbsp; જય ખોડિયાર માં 🕉</div>
+
+<!-- Navigation -->
 <nav class="menubar">
-  <div class="menu-toggle" onclick="toggleMenu()">☰ મેનુ</div>
+  <div class="menu-toggle" onclick="toggleMenu()">☰ &nbsp;મેનુ</div>
   <div class="menu-links">
-    <a class="active" onclick="showTab('home',this)">હોમ</a>
-    <a onclick="showTab('timeline',this)">સમયરેખા</a>
-    <a onclick="showTab('videos',this)">વિડિયો</a>
-    <a onclick="showTab('donors',this)">દાતાશ્રી</a>
-    <a onclick="showTab('patala',this)">હવન પાટલા</a>
-    <a onclick="showTab('shreebharadimaa',this)">ભરાડી માતાજી</a>
-    <a onclick="showTab('details',this)">પ્રેરણાદાયક મંદિર</a>
+    <a class="active" onclick="showTab('home',this)">🏠 હોમ</a>
+    <a onclick="showTab('timeline',this)">📅 સમયરેખા</a>
+    <a onclick="showTab('videos',this)">🎬 વિડિયો</a>
+    <a onclick="showTab('donors',this)">🙏 દાતાશ્રી</a>
+    <a onclick="showTab('patala',this)">🔥 હવન પાટલા</a>
+    <a onclick="showTab('shreebharadimaa',this)">🌸 ભરાડી માતાજી</a>
+    <a onclick="showTab('details',this)">⭐ પ્રેરણાદાયક મંદિર</a>
   </div>
 </nav>
 
+<div class="page-wrap">
 <div class="container">
 
+<!-- Header -->
 <header>
   <h2>જય સુરાપુરા દાદા મંદિર નિર્માણ</h2>
 </header>
 
-<!-- HOME -->
+<!-- ===== HOME TAB ===== -->
 <div id="home" class="tab active">
 
-<h2 style="font-size:18px;">જય સુરાપુરા દાદા મંદિર</h2>
-<h3> રામપર સાવલિયા પરિવારના સુરાપુરા દાદાની પ્રાણ પ્રતિષ્ઠાની તારીખ ૮ મે ૨૦૨૬ (શુક્રવાર) થી ૧૦ મે ૨૦૨૬ (રવિવાર) રાખેલ છે.  </h3>
+  <div class="section-title"><h2>જય સુરાપુરા દાદા મંદિર</h2></div>
 
-<h2 style="font-size:18px; text-align:center;">
-<a href="https://rampar-gam.github.io/surapura/%E0%AA%9C%E0%AA%AF%20%E0%AA%B8%E0%AB%81%E0%AA%B0%E0%AA%BE%E0%AA%AA%E0%AB%81%E0%AA%B0%E0%AA%BE%20%E0%AA%A6%E0%AA%BE%E0%AA%A6%E0%AA%BE%20%E0%AA%AA%E0%AB%8D%E0%AA%B0%E0%AA%BE%E0%AA%A3%20%E0%AA%AA%E0%AB%8D%E0%AA%B0%E0%AA%A4%E0%AA%BF%E0%AA%B7%E0%AB%8D%E0%AA%A0%E0%AA%BE%20%E0%AA%AE%E0%AA%B9%E0%AB%8B%E0%AA%A4%E0%AB%8D%E0%AA%B8%E0%AA%B5.pdf" download 
-   style="display:inline-block; padding:10px 20px; background:#28a745; color:#fff; text-decoration:none; border-radius:5px; font-size:16px;">
-   📥 આમંત્રણ ડાઉનલોડ કરો
-</a>
-</h2>
+  <div class="home-announcement">
+    <h3>રામપર સાવલિયા પરિવારના સુરાપુરા દાદાની પ્રાણ પ્રતિષ્ઠાની તારીખ ૮ મે ૨૦૨૬ (શુક્રવાર) થી ૧૦ મે ૨૦૨૬ (રવિવાર) રાખેલ છે.</h3>
+  </div>
 
-<h2 style="font-size:18px; text-align:center;">
-  <a href="https://maps.app.goo.gl/1Sdu3h5w2BdgBJVQ8" target="_blank" style="padding:6px 14px; background:#b45309; color:#fff; text-decoration:none; border-radius:6px; display:inline-block;">રામપર ગામના લોકેશન માટે અહીં ક્લિક કરો</a>
-</h2>
+  <div class="home-buttons">
+    <a href="https://rampar-gam.github.io/surapura/%E0%AA%9C%E0%AA%AF%20%E0%AA%B8%E0%AB%81%E0%AA%B0%E0%AA%BE%E0%AA%AA%E0%AB%81%E0%AA%B0%E0%AA%BE%20%E0%AA%A6%E0%AA%BE%E0%AA%A6%E0%AA%BE%20%E0%AA%AA%E0%AB%8D%E0%AA%B0%E0%AA%BE%E0%AA%A3%20%E0%AA%AA%E0%AB%8D%E0%AA%B0%E0%AA%A4%E0%AA%BF%E0%AA%B7%E0%AB%8D%E0%AA%A0%E0%AA%BE%20%E0%AA%AE%E0%AA%B9%E0%AB%8B%E0%AA%A4%E0%AB%8D%E0%AA%B8%E0%AA%B5.pdf" download class="btn-download">📥 આમંત્રણ ડાઉનલોડ કરો</a>
+    <a href="https://maps.app.goo.gl/1Sdu3h5w2BdgBJVQ8" target="_blank" class="btn-location">📍 રામપર ગામના લોકેશન માટે અહીં ક્લિક કરો</a>
+  </div>
 
 </div>
 
 <!-- ===== TIMELINE TAB ===== -->
 <div id="timeline" class="tab">
-  <h2 style="font-size:18px;">સમયરેખા</h2>
+  <div class="section-title"><h2>સમયરેખા</h2></div>
 
   <div class="timeline">
 
     <div class="event">
       <div><strong>18-10-2025 • ખાતમુહૂર્ત</strong></div>
-      <p>મંદિરના નિર્માણ કાર્ય પૂર્ણ થવાના શુભ અવસરે આયોજિત ધાર્મિક વિધિ.</p>      
+      <p>મંદિરના નિર્માણ કાર્ય પૂર્ણ થવાના શુભ અવસરે આયોજિત ધાર્મિક વિધિ.</p>
       <div class="gallery-controls">
-        <button class="play-btn" onclick="startSlideshow(this)">Play</button>
+        <button class="play-btn" onclick="startSlideshow(this)">▶ Play</button>
       </div>
       <div class="event-gallery grid">
         <img src="https://rampar-gam.github.io/surapura/images/1%20Khatmuhurta%20(1).jpeg">
@@ -307,9 +665,9 @@ th{background:var(--primary);color:white;}
 
     <div class="event">
       <div><strong>18-10-2025 • સફાઈ</strong></div>
-      <p>મંદિર પરિસર, આસપાસનો વિસ્તાર અને નિર્માણ સ્થળની સંપૂર્ણ સ્વચ્છતા. </p>      
+      <p>મંદિર પરિસર, આસપાસનો વિસ્તાર અને નિર્માણ સ્થળની સંપૂર્ણ સ્વચ્છતા.</p>
       <div class="gallery-controls">
-        <button class="play-btn" onclick="startSlideshow(this)">Play</button>
+        <button class="play-btn" onclick="startSlideshow(this)">▶ Play</button>
       </div>
       <div class="event-gallery grid">
         <img src="https://rampar-gam.github.io/surapura/images/2%20SafSafai%20(1).jpeg">
@@ -326,9 +684,9 @@ th{background:var(--primary);color:white;}
 
     <div class="event">
       <div><strong>27-10-2025 • ભૂમિ પૂજન</strong></div>
-      <p>મંદિર નિર્માણ શરૂ કરતા પહેલાં કરવામાં આવતી પવિત્ર વિધિ. દેવી-દેવતાઓના આશીર્વાદ સાથે કાર્યની શુભ શરૂઆત માટે ભૂમિનું પૂજન કરવામાં આવે છે.</p>      
+      <p>મંદિર નિર્માણ શરૂ કરતા પહેલાં કરવામાં આવતી પવિત્ર વિધિ. દેવી-દેવતાઓના આશીર્વાદ સાથે કાર્યની શુભ શરૂઆત માટે ભૂમિનું પૂજન કરવામાં આવે છે.</p>
       <div class="gallery-controls">
-        <button class="play-btn" onclick="startSlideshow(this)">Play</button>
+        <button class="play-btn" onclick="startSlideshow(this)">▶ Play</button>
       </div>
       <div class="event-gallery grid">
         <img src="https://rampar-gam.github.io/surapura/images/4%20Bhumipujan%20(1).jpeg">
@@ -350,9 +708,9 @@ th{background:var(--primary);color:white;}
 
     <div class="event">
       <div><strong>23-01-2026 • બાંધકામ</strong></div>
-      <p>મંદિરના માળખાનું આયોજનબદ્ધ નિર્માણ કાર્ય. તેમાં પાયાની કામગીરી, દિવાલો, ગર્ભગૃહ તથા અન્ય રચનાત્મક ભાગોનો સમાવેશ થાય છે.</p>      
+      <p>મંદિરના માળખાનું આયોજનબદ્ધ નિર્માણ કાર્ય. તેમાં પાયાની કામગીરી, દિવાલો, ગર્ભગૃહ તથા અન્ય રચનાત્મક ભાગોનો સમાવેશ થાય છે.</p>
       <div class="gallery-controls">
-        <button class="play-btn" onclick="startSlideshow(this)">Play</button>
+        <button class="play-btn" onclick="startSlideshow(this)">▶ Play</button>
       </div>
       <div class="event-gallery grid">
         <img src="https://rampar-gam.github.io/surapura/images/6%20Bandhkam%20(1).jpeg">
@@ -373,21 +731,21 @@ th{background:var(--primary);color:white;}
         <img src="https://rampar-gam.github.io/surapura/images/6%20Bandhkam%20(16).jpeg">
       </div>
     </div>
-	
+
   </div>
 </div>
 
-<!-- ===== Bharadi Mata TAB ===== -->
+<!-- ===== BHARADI MAA TAB ===== -->
 <div id="shreebharadimaa" class="tab">
-  <h2 style="font-size:18px;">ભરાડી માતાજી</h2>
+  <div class="section-title"><h2>ભરાડી માતાજી</h2></div>
 
   <div class="timeline">
 
     <div class="event">
       <div><strong>પહેલાનું મંદિર</strong></div>
-      <p>શ્રી ભરાડી માતાજીનું પહેલાનું મંદિર ઐતિહાસિક મહત્વ મહત્વ ધરાવે છે. તે સમયમાં મંદિર સરળ રચનાવાળું અને ગામના ભક્તોના સહયોગથી બનાવાયેલું હતું.</p>      
+      <p>શ્રી ભરાડી માતાજીનું પહેલાનું મંદિર ઐતિહાસિક મહત્વ મહત્વ ધરાવે છે. તે સમયમાં મંદિર સરળ રચનાવાળું અને ગામના ભક્તોના સહયોગથી બનાવાયેલું હતું.</p>
       <div class="gallery-controls">
-        <button class="play-btn" onclick="startSlideshow(this)">Play</button>
+        <button class="play-btn" onclick="startSlideshow(this)">▶ Play</button>
       </div>
       <div class="event-gallery grid">
         <img src="https://rampar-gam.github.io/surapura/jay-bharadi-maa/1.jpg">
@@ -398,9 +756,9 @@ th{background:var(--primary);color:white;}
 
     <div class="event">
       <div><strong>હાલનું મંદિર</strong></div>
-      <p>હાલમાં ભરાડી આઈ માતાજીનું મંદિર નવીન સ્વરૂપમાં નિર્માણ પામ્યું છે. મંદિર પરિસર સ્વચ્છ, શાંત અને આધ્યાત્મિક વાતાવરણથી ભરપૂર છે, જે ભક્તોને શાંતિ અને આનંદનો અનુભવ કરાવે છે.</p>      
+      <p>હાલમાં ભરાડી આઈ માતાજીનું મંદિર નવીન સ્વરૂપમાં નિર્માણ પામ્યું છે. મંદિર પરિસર સ્વચ્છ, શાંત અને આધ્યાત્મિક વાતાવરણથી ભરપૂર છે, જે ભક્તોને શાંતિ અને આનંદનો અનુભવ કરાવે છે.</p>
       <div class="gallery-controls">
-        <button class="play-btn" onclick="startSlideshow(this)">Play</button>
+        <button class="play-btn" onclick="startSlideshow(this)">▶ Play</button>
       </div>
       <div class="event-gallery grid">
         <img src="https://rampar-gam.github.io/surapura/jay-bharadi-maa/4.jpg">
@@ -411,168 +769,158 @@ th{background:var(--primary);color:white;}
         <img src="https://rampar-gam.github.io/surapura/jay-bharadi-maa/9.jpg">
       </div>
     </div>
-	
+
   </div>
 </div>
 
-<!-- ===== VIDEO TAB ===== -->
+<!-- ===== VIDEOS TAB ===== -->
 <div id="videos" class="tab">
-  <h2 style="font-size:18px;">મંદિર નિર્માણ વિડિયો</h2>
+  <div class="section-title"><h2>મંદિર નિર્માણ વિડિયો</h2></div>
 
   <div class="video-grid">
     <video controls poster="https://rampar-gam.github.io/surapura/thumbnail/videoframe_1.png">
       <source src="https://rampar-gam.github.io/surapura/videos/1.mp4" type="video/mp4">
     </video>
-
     <video controls poster="https://rampar-gam.github.io/surapura/thumbnail/videoframe_2.png">
       <source src="https://rampar-gam.github.io/surapura/videos/2.mp4" type="video/mp4">
     </video>
-
     <video controls poster="https://rampar-gam.github.io/surapura/thumbnail/videoframe_3.png">
       <source src="https://rampar-gam.github.io/surapura/videos/3.mp4" type="video/mp4">
     </video>
-
     <video controls poster="https://rampar-gam.github.io/surapura/thumbnail/videoframe_4.png">
       <source src="https://rampar-gam.github.io/surapura/videos/4.mp4" type="video/mp4">
     </video>
-
     <video controls poster="https://rampar-gam.github.io/surapura/thumbnail/videoframe_5.png">
       <source src="https://rampar-gam.github.io/surapura/videos/5.mp4" type="video/mp4">
     </video>
-
     <video controls poster="https://rampar-gam.github.io/surapura/thumbnail/videoframe_6.png">
       <source src="https://rampar-gam.github.io/surapura/videos/6.mp4" type="video/mp4">
     </video>
-
     <video controls poster="https://rampar-gam.github.io/surapura/thumbnail/videoframe_7.png">
       <source src="https://rampar-gam.github.io/surapura/videos/7.mp4" type="video/mp4">
     </video>
-
     <video controls poster="https://rampar-gam.github.io/surapura/thumbnail/videoframe_8.png">
       <source src="https://rampar-gam.github.io/surapura/videos/8.mp4" type="video/mp4">
     </video>
-
     <video controls poster="https://rampar-gam.github.io/surapura/thumbnail/videoframe_9.png">
       <source src="https://rampar-gam.github.io/surapura/videos/9.mp4" type="video/mp4">
     </video>
-
     <video controls poster="https://rampar-gam.github.io/surapura/thumbnail/videoframe_10.png">
       <source src="https://rampar-gam.github.io/surapura/videos/10.mp4" type="video/mp4">
     </video>
-
     <video controls poster="https://rampar-gam.github.io/surapura/thumbnail/videoframe_11.png">
       <source src="https://rampar-gam.github.io/surapura/videos/11.mp4" type="video/mp4">
     </video>
-
   </div>
 </div>
 
 <!-- ===== DONORS TAB ===== -->
 <div id="donors" class="tab">
-  <center><h2 style="font-size:18px;">દાતાશ્રી યાદી</h2></center>
-<table>
-  <tr>
-    <th>દાન ₹</th>
-    <th>નામ</th>
-    <th>દાનનો પ્રકાર</th>
-  </tr>
-  <tr>
-    <td>૧,૦૧,૦૦૦</td>
-    <td>સ્વ. નારણભાઈ વાલજીભાઈ સાવલીયા (ટેકસી)
-      <br> સ્વ. શામજીભાઈ માવજીભાઈ સાવલીયા (હ. વિઠ્ઠલભાઈ)
-      <br> સ્વ. કરશનભાઈ માવજીભાઈ સાવલીયા</td>
-    <td>ભુમિ દાતાશ્રી</td>
-  </tr>
-  <tr>
-    <td>૮૦,૦૦૦</td>
-    <td>શ્રી રમેશભાઈ લક્ષ્મણભાઈ સાવલીયા (સરપંચ)</td>
-    <td>મંદિરના બારી, દરવાજ, ગ્રીલ ના દાતાશ્રી</td>
-  </tr>
-  <tr>
-    <td>૫૫,૫૫૫</td>
-    <td>શ્રી જયેશભાઈ નાથાભાઈ સાવલીયા
-      <br> શ્રી રાજેશભાઈ માધાભાઈ સાવલીયા</td>
-    <td>શ્રી ખોડિયાર માતાજીના ચાંદિના મુંગટ તથા કડા ના દાતાશ્રી</td>
-  </tr>
-  <tr>
-    <td>૫૧,૦૦૦</td>
-    <td>શ્રી મીરા બ્રાસ ઇન્ડસ્ટ્રીઝ જામનગર (હ. મિતુલભાઈ)
-      <br> સાવલિયા પરિવાર તરફથી (હ. જયેશભાઈ)</td>
-    <td>મંદિર નિર્માણ ના દાતાશ્રી</td>
-  </tr>
-  <tr>
-    <td>૪૧,૦૦૦</td>
-    <td>સ્વ. કુરજીભાઈ દેવરાજભાઈ સાવલીયા (હ. નંદલાલ)</td>
-    <td>મંદિરમાં પાણીના બોર તથા મોટર ના દાતાશ્રી</td>
-  </tr>
-  <tr>
-    <td>3૫,૦૦૦</td>
-    <td>શ્રી ધિરેનભાઈ પરસોત્તમભાઈ સાવલીયા</td>
-    <td>લાઈટ કન્સીલ તથા ફીટીંગ ના દાતાશ્રી</td>
-  </tr>
-  <tr>
-    <td>૨૫,૦૦૦</td>
-    <td>સ્વ. રતિલાલ લક્ષ્મભાઈ સાવલીયા</td>
-    <td>મંદિરના બારી/દરવાજાના દાતાશ્રી</td>
-  </tr>
-  <tr>
-    <td>૨૧,૦૦૦</td>
-    <td>શ્રી મુકેશભાઈ લાલજીભાઈ સાવલીયા (ખડ ખંભાળીયા)</td>
-    <td>શ્રી ભોજલરામ બાપા મૂર્તિના દાતાશ્રી</td>
-  </tr>
-  <tr>
-    <td>૨૦,૦૦૦</td>
-    <td>સ્વ. પાર્વતીબેન જીવનભાઈ સાવલીયા (હ. માધવેશ)</td>
-    <td>મંદિરના નિર્માણ ના દાતાશ્રી</td>
-  </tr>
-  <tr>
-    <td>૧૭,૫૦૦</td>
-    <td>સ્વ. મોહનભાઈ જેરામભાઈ સાવલીયા (રાજકોટ) (હ. દિપકભાઈ)</td>
-    <td>શ્રી ગણપતિ દાદા મૂર્તિના દાતાશ્રી</td>
-  </tr>
-  <tr>
-    <td>૧૫,૫૫૧</td>
-    <td>શ્રી ચેતનભાઈ ગોરધનભાઈ સાવલીયા (હસ્થળ)</td>
-    <td>શ્રી કળશ સુરપુરા દાદા સ્થાનના દાતાશ્રી</td>
-  </tr>
-  <tr>
-    <td>૧૫,૦૫૧</td>
-    <td>શ્રી વિઠ્ઠલભાઈ વસ્તાભાઈ સાવલીયા</td>
-    <td>મંદિરના મોર તથા ટહુકો ના દાતાશ્રી</td>
-  </tr>
-  <tr>
-    <td>૧૭,૫૦૦</td>
-    <td>શ્રી બાબુભાઈ નારણભાઈ સાવલીચા (રામપર)</td>
-    <td>શ્રી હનુમાન દાદા મૂર્તિના દતાશ્રી</td>
-  </tr>
-  <tr>
-    <td>-</td>
-    <td>સવ. નારણભાઈ વાલજીભાઈ સાવલીયા (ટેકસી) (હ. ઘનશ્યામભાઈ)</td>
-    <td>શ્રી ખોડિયાર માતાજી મૂર્તિના દાતાશ્રી</td>
-  </tr>
-</table>
+  <div class="section-title"><h2>દાતાશ્રી યાદી</h2></div>
 
-<center><h2 style="font-size:18px;">ભોજન પ્રસાદીના દાતાશ્રી</h2></center>
-<table>
-  <tr><th>દાતાશ્રી</th></tr>
-  <tr>
-    <td> શ્રી વલ્લભભાઈ જેરામભાઈ સાવલીયા (જામનગર) (બપોરે - ૧)
-      <br> શ્રી વિપુલભાઈ પરસોત્તમભાઈ સાવલીયા (અભેપર) (સાંજે -૧)
-      <br> શ્રી મહેશભાઈ પ્રેમજીભાઈ સાવલીયા (ખડ ખંભાળીયા) (બપોરે - ૧)</td>
-  </tr>
-</table>
+  <div class="table-wrap">
+  <table>
+    <tr>
+      <th>દાન ₹</th>
+      <th>નામ</th>
+      <th>દાનનો પ્રકાર</th>
+    </tr>
+    <tr>
+      <td>૧,૦૧,૦૦૦</td>
+      <td>સ્વ. નારણભાઈ વાલજીભાઈ સાવલીયા (ટેકસી)<br> સ્વ. શામજીભાઈ માવજીભાઈ સાવલીયા (હ. વિઠ્ઠલભાઈ)<br> સ્વ. કરશનભાઈ માવજીભાઈ સાવલીયા</td>
+      <td>ભુમિ દાતાશ્રી</td>
+    </tr>
+    <tr>
+      <td>૮૦,૦૦૦</td>
+      <td>શ્રી રમેશભાઈ લક્ષ્મણભાઈ સાવલીયા (સરપંચ)</td>
+      <td>મંદિરના બારી, દરવાજ, ગ્રીલ ના દાતાશ્રી</td>
+    </tr>
+    <tr>
+      <td>૫૫,૫૫૫</td>
+      <td>શ્રી જયેશભાઈ નાથાભાઈ સાવલીયા<br> શ્રી રાજેશભાઈ માધાભાઈ સાવલીયા</td>
+      <td>શ્રી ખોડિયાર માતાજીના ચાંદિના મુંગટ તથા કડા ના દાતાશ્રી</td>
+    </tr>
+    <tr>
+      <td>૫૧,૦૦૦</td>
+      <td>શ્રી મીરા બ્રાસ ઇન્ડસ્ટ્રીઝ જામનગર (હ. મિતુલભાઈ)<br> સાવલિયા પરિવાર તરફથી (હ. જયેશભાઈ)</td>
+      <td>મંદિર નિર્માણ ના દાતાશ્રી</td>
+    </tr>
+    <tr>
+      <td>૪૧,૦૦૦</td>
+      <td>સ્વ. કુરજીભાઈ દેવરાજભાઈ સાવલીયા (હ. નંદલાલ)</td>
+      <td>મંદિરમાં પાણીના બોર તથા મોટર ના દાતાશ્રી</td>
+    </tr>
+    <tr>
+      <td>3૫,૦૦૦</td>
+      <td>શ્રી ધિરેનભાઈ પરસોત્તમભાઈ સાવલીયા</td>
+      <td>લાઈટ કન્સીલ તથા ફીટીંગ ના દાતાશ્રી</td>
+    </tr>
+    <tr>
+      <td>૨૫,૦૦૦</td>
+      <td>સ્વ. રતિલાલ લક્ષ્મભાઈ સાવલીયા</td>
+      <td>મંદિરના બારી/દરવાજાના દાતાશ્રી</td>
+    </tr>
+    <tr>
+      <td>૨૧,૦૦૦</td>
+      <td>શ્રી મુકેશભાઈ લાલજીભાઈ સાવલીયા (ખડ ખંભાળીયા)</td>
+      <td>શ્રી ભોજલરામ બાપા મૂર્તિના દાતાશ્રી</td>
+    </tr>
+    <tr>
+      <td>૨૦,૦૦૦</td>
+      <td>સ્વ. પાર્વતીબેન જીવનભાઈ સાવલીયા (હ. માધવેશ)</td>
+      <td>મંદિરના નિર્માણ ના દાતાશ્રી</td>
+    </tr>
+    <tr>
+      <td>૧૭,૫૦૦</td>
+      <td>સ્વ. મોહનભાઈ જેરામભાઈ સાવલીયા (રાજકોટ) (હ. દિપકભાઈ)</td>
+      <td>શ્રી ગણપતિ દાદા મૂર્તિના દાતાશ્રી</td>
+    </tr>
+    <tr>
+      <td>૧૫,૫૫૧</td>
+      <td>શ્રી ચેતનભાઈ ગોરધનભાઈ સાવલીયા (હસ્થળ)</td>
+      <td>શ્રી કળશ સુરપુરા દાદા સ્થાનના દાતાશ્રી</td>
+    </tr>
+    <tr>
+      <td>૧૫,૦૫૧</td>
+      <td>શ્રી વિઠ્ઠલભાઈ વસ્તાભાઈ સાવલીયા</td>
+      <td>મંદિરના મોર તથા ટહુકો ના દાતાશ્રી</td>
+    </tr>
+    <tr>
+      <td>૧૭,૫૦૦</td>
+      <td>શ્રી બાબુભાઈ નારણભાઈ સાવલીચા (રામપર)</td>
+      <td>શ્રી હનુમાન દાદા મૂર્તિના દતાશ્રી</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>સવ. નારણભાઈ વાલજીભાઈ સાવલીયા (ટેકસી) (હ. ઘનશ્યામભાઈ)</td>
+      <td>શ્રી ખોડિયાર માતાજી મૂર્તિના દાતાશ્રી</td>
+    </tr>
+  </table>
+  </div>
 
+  <div class="center-heading"><h2>ભોજન પ્રસાદીના દાતાશ્રી</h2></div>
+  <div class="table-wrap">
+  <table>
+    <tr><th>દાતાશ્રી</th></tr>
+    <tr>
+      <td>શ્રી વલ્લભભાઈ જેરામભાઈ સાવલીયા (જામનગર) (બપોરે - ૧)<br> શ્રી વિપુલભાઈ પરસોત્તમભાઈ સાવલીયા (અભેપર) (સાંજે -૧)<br> શ્રી મહેશભાઈ પ્રેમજીભાઈ સાવલીયા (ખડ ખંભાળીયા) (બપોરે - ૧)</td>
+    </tr>
+  </table>
+  </div>
 </div>
 
-<!-- ===== COMMITTEE MEMBERS TAB ===== -->
+<!-- ===== PATALA TAB ===== -->
 <div id="patala" class="tab">
-  <center><h2 style="font-size:18px;">મુખ્ય પાટલાના યજમાન</h2></center>
+  <div class="center-heading"><h2>મુખ્ય પાટલાના યજમાન</h2></div>
+  <div class="table-wrap">
   <table>
     <tr><th>યોગદાન</th><th>નામ</th><th>ગામ</th></tr>
     <tr><td>૫૨,૧૦૦</td><td style="text-align:left;">શ્રી વિષ્ણુભાઈ કેશુભાઈ સાવલિયા</td><td>રામપર</td></tr>
   </table>
+  </div>
 
-  <center><h2 style="font-size:18px;">સાઇડ પાટલાના યજમાન</h2></center>
+  <div class="center-heading" style="margin-top:32px;"><h2>સાઇડ પાટલાના યજમાન</h2></div>
+  <div class="table-wrap">
   <table>
     <tr><th>યોગદાન</th><th>નામ</th><th>ગામ</th></tr>
     <tr><td>૫,૧૦૦</td><td style="text-align:left;">શ્રી વિવેકભાઈ ઓધાભાઈ સાવલિયા</td><td>રામપર</td></tr>
@@ -593,73 +941,54 @@ th{background:var(--primary);color:white;}
     <tr><td>૫,૧૦૦</td><td style="text-align:left;">શ્રી ધર્મેન્દ્રભાઈ રમેશભાઈ સાવલિયા</td><td>રામપર</td></tr>
     <tr><td>૫,૧૦૦</td><td style="text-align:left;">શ્રી લક્ષિતભાઈ મુકેશભાઈ સાવલીયા</td><td>ખડ-ખંભાડિયા</td></tr>
   </table>
+  </div>
 </div>
 
-
-<!-- DETAILS CARD VIEW -->
+<!-- ===== DETAILS / CARDS TAB ===== -->
 <div id="details" class="tab">
+  <div class="section-title"><h2>પ્રેરણાદાયક મંદિર</h2></div>
   <div class="card-grid">
 
-<div class="card">
-  <h3>દ્વારકાધીશ મંદિર – દ્વારકા</h3>
-  <p><strong>વેબસાઇટ:</strong> 
-    <a href="https://www.dwarkadhish.org/" target="_blank">દ્વારકાધીશ</a>
-  </p>
-  <p><strong>સરનામું:</strong> દ્વારકા, ગુજરાત</p>
-  <p><strong>ગુગલ નકશો:</strong> 
-    <a href="https://maps.app.goo.gl/Zc1CeA5sWyaX9cVB9" target="_blank">સ્થાન જુઓ</a>
-  </p>	  
-</div>
+    <div class="card">
+      <h3>દ્વારકાધીશ મંદિર – દ્વારકા</h3>
+      <p><strong>વેબસાઇટ:</strong> <a href="https://www.dwarkadhish.org/" target="_blank">દ્વારકાધીશ</a></p>
+      <p><strong>સરનામું:</strong> દ્વારકા, ગુજરાત</p>
+      <p><strong>ગુગલ નકશો:</strong> <a href="https://maps.app.goo.gl/Zc1CeA5sWyaX9cVB9" target="_blank">સ્થાન જુઓ</a></p>
+    </div>
 
-<div class="card">
-  <h3>ખોડલધામ મંદિર – કાગવડ</h3>
-  <p><strong>વેબસાઇટ:</strong> 
-    <a href="https://khodaldham.org/" target="_blank">ખોડલધામ</a>
-  </p>
-  <p><strong>સરનામું:</strong> કાગવડ, રાજકોટ</p>
-  <p><strong>ગુગલ નકશો:</strong> 
-    <a href="https://maps.app.goo.gl/gEmYR5RXRyCQZybg9" target="_blank">સ્થાન જુઓ</a>
-  </p>	  
-</div>
+    <div class="card">
+      <h3>ખોડલધામ મંદિર – કાગવડ</h3>
+      <p><strong>વેબસાઇટ:</strong> <a href="https://khodaldham.org/" target="_blank">ખોડલધામ</a></p>
+      <p><strong>સરનામું:</strong> કાગવડ, રાજકોટ</p>
+      <p><strong>ગુગલ નકશો:</strong> <a href="https://maps.app.goo.gl/gEmYR5RXRyCQZybg9" target="_blank">સ્થાન જુઓ</a></p>
+    </div>
 
-<div class="card">
-  <h3>ભોજલધામ – ફતેહપુર</h3>
-  <p><strong>વેબસાઇટ:</strong> 
-    <a href="https://bhojaldham.org/gujarati/gujarati.html" target="_blank">ભોજલધામ</a>
-  </p>
-  <p><strong>સરનામું:</strong> ફતેહપુર, ગુજરાત</p>
-  <p><strong>ગુગલ નકશો:</strong> 
-    <a href="https://maps.app.goo.gl/hRdoe58djz5XkgRM9" target="_blank">સ્થાન જુઓ</a>
-  </p>	  
-</div>
+    <div class="card">
+      <h3>ભોજલધામ – ફતેહપુર</h3>
+      <p><strong>વેબસાઇટ:</strong> <a href="https://bhojaldham.org/gujarati/gujarati.html" target="_blank">ભોજલધામ</a></p>
+      <p><strong>સરનામું:</strong> ફતેહપુર, ગુજરાત</p>
+      <p><strong>ગુગલ નકશો:</strong> <a href="https://maps.app.goo.gl/hRdoe58djz5XkgRM9" target="_blank">સ્થાન જુઓ</a></p>
+    </div>
 
-<div class="card">
-  <h3>બગદાણા – બાપા સીતારામ મંદિર</h3>
-  <p><strong>વેબસાઇટ:</strong> 
-    <a href="https://bapasitaramtemple.org/" target="_blank">બગદાણા</a>
-  </p>
-  <p><strong>સરનામું:</strong> મહુવા, ભાવનગર</p>
-  <p><strong>ગુગલ નકશો:</strong> 
-    <a href="https://maps.app.goo.gl/KqxoUKt66i9XXCiQ7" target="_blank">સ્થાન જુઓ</a>
-  </p>	  
-</div>
+    <div class="card">
+      <h3>બગદાણા – બાપા સીતારામ મંદિર</h3>
+      <p><strong>વેબસાઇટ:</strong> <a href="https://bapasitaramtemple.org/" target="_blank">બગદાણા</a></p>
+      <p><strong>સરનામું:</strong> મહુવા, ભાવનગર</p>
+      <p><strong>ગુગલ નકશો:</strong> <a href="https://maps.app.goo.gl/KqxoUKt66i9XXCiQ7" target="_blank">સ્થાન જુઓ</a></p>
+    </div>
 
-<div class="card">
-  <h3>જલારામ બાપા મંદિર – વિરપુર</h3>
-  <p><strong>વેબસાઇટ:</strong> 
-    <a href="https://www.jalaramtemplepatan.org/" target="_blank">વિરપુર</a>
-  </p>
-  <p><strong>સરનામું:</strong> વિરપુર, રાજકોટ</p>
-  <p><strong>ગુગલ નકશો:</strong> 
-    <a href="https://maps.app.goo.gl/rxTKYNXczh9sCJ2u9" target="_blank">સ્થાન જુઓ</a>
-  </p>	  
-</div>
-
+    <div class="card">
+      <h3>જલારામ બાપા મંદિર – વિરપુર</h3>
+      <p><strong>વેબસાઇટ:</strong> <a href="https://www.jalaramtemplepatan.org/" target="_blank">વિરપુર</a></p>
+      <p><strong>સરનામું:</strong> વિરપુર, રાજકોટ</p>
+      <p><strong>ગુગલ નકશો:</strong> <a href="https://maps.app.goo.gl/rxTKYNXczh9sCJ2u9" target="_blank">સ્થાન જુઓ</a></p>
+    </div>
 
   </div>
 </div>
 
-</div>
+</div><!-- /container -->
+</div><!-- /page-wrap -->
 
 <!-- ===== IMAGE MODAL ===== -->
 <div class="modal" id="imgModal" onclick="closeModal()">
@@ -667,55 +996,51 @@ th{background:var(--primary);color:white;}
 </div>
 
 <script>
-function showTab(id,el){
-  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-  document.querySelectorAll('.menubar a').forEach(a=>a.classList.remove('active'));
+function showTab(id, el) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.menubar a').forEach(a => a.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   el.classList.add('active');
 }
 
-/* layout toggle */
-function setLayout(btn,type){
-  const gallery=btn.closest('.event').querySelector('.event-gallery');
-  gallery.classList.remove('grid','list');
+function setLayout(btn, type) {
+  const gallery = btn.closest('.event').querySelector('.event-gallery');
+  gallery.classList.remove('grid', 'list');
   gallery.classList.add(type);
 }
 
-/* slideshow */
 let slideTimer;
-function startSlideshow(btn){
-  const imgs=btn.closest('.event').querySelectorAll('.event-gallery img');
-  if(!imgs.length) return;
-  let i=0;
+function startSlideshow(btn) {
+  const imgs = btn.closest('.event').querySelectorAll('.event-gallery img');
+  if (!imgs.length) return;
+  let i = 0;
   openModal(imgs[0].src);
   clearInterval(slideTimer);
-  slideTimer=setInterval(()=>{
-    i=(i+1)%imgs.length;
-    modalImg.src=imgs[i].src;
-  },1500);
+  slideTimer = setInterval(() => {
+    i = (i + 1) % imgs.length;
+    modalImg.src = imgs[i].src;
+  }, 1500);
 }
 
-
-function toggleMenu(){
+function toggleMenu() {
   document.querySelector('.menu-links').classList.toggle('show');
 }
 
-/* modal */
-function openModal(src){
-  modalImg.src=src;
+function openModal(src) {
+  modalImg.src = src;
   imgModal.classList.add('show');
 }
-function closeModal(){
+
+function closeModal() {
   imgModal.classList.remove('show');
   clearInterval(slideTimer);
 }
 
-document.addEventListener('dblclick',e=>{
-  if(e.target.tagName==='IMG'){
+document.addEventListener('dblclick', e => {
+  if (e.target.tagName === 'IMG') {
     openModal(e.target.src);
   }
 });
 </script>
-
 </body>
 </html>
